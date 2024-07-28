@@ -9,12 +9,6 @@ from ipynb.fs.full.CollaborativeFiltering import movie_recommender_run
 st.set_page_config(layout = "wide", page_title = "Movie Recommendation App", page_icon = ":Cinema:")
 
 #Write code to call movie_recommender_run and display recommendations
-
-#Display movie rating charts here
-
-
-
-
 #Read the dataset to find unique users
 column_names = ['User_ID', 'User_Names','Movie_ID','Rating','Timestamp']
 movies_df = pd.read_csv('Movie_data.csv', sep = ',', names = column_names)
@@ -30,9 +24,13 @@ User_Name = st.selectbox(
 )
 
 st.write("This user might be interested in the following movies:")
-#Find and display recommendations for selected users
+
+#Display movie rating charts here
 result = movie_recommender_run(User_Name)
 st.table(result.Movie_Title)
+
+
+#######
 
 # Display details of provided recommendations
 ids= result.Movie_ID
@@ -65,7 +63,5 @@ for i in range (len(result)):
 fig.update_layout(height=900,width=800, showlegend=False, title= "Ratings of Suggested Movies")
 
 st.plotly_chart(fig, use_container_width=True)
-
-
 
 #   streamlit run app.py
