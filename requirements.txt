@@ -1,6 +1,6 @@
 pandas==1.5.1
 numpy==1.23.4
 streamlit==1.14.0
-plotly==5.11.0
+plotly
 ipynb==0.5.1
 scikit-learn==1.1.3
